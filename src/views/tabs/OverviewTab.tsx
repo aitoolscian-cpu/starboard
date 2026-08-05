@@ -148,7 +148,6 @@ export function OverviewTab({
               </li>
             ))}
           </ul>
-          <PanelNote />
         </Panel>
       </div>
     </div>

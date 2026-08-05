@@ -93,6 +93,11 @@ body {
   background: var(--aurora);
   box-shadow: 0 0 8px 1px rgba(79, 216, 196, 0.7);
 }
+/* the sky renders "green" as steady gold light — its legend dot matches */
+.dot-gold {
+  background: var(--gold);
+  box-shadow: 0 0 8px 1px rgba(232, 184, 75, 0.75);
+}
 .dot-amber {
   background: var(--amber);
   box-shadow: 0 0 8px 1px rgba(242, 166, 90, 0.7);

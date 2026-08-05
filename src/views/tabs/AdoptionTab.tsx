@@ -25,7 +25,11 @@ export default function AdoptionTab({ program: p }: { program: Program }) {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-wrap gap-3">
-        <StatTile label={t('ad.adoption')} value={`${a.curve[a.curve.length - 1]}%`} sub={`${t('ad.week')} 12`} />
+        <StatTile
+          label={t('ad.adoption')}
+          value={`${a.curve[a.curve.length - 1]}%`}
+          sub={`${t('ad.week')} 12 · ${t('fin.forecast').toLowerCase()}`}
+        />
         <StatTile label={t('ad.training')} value={`${a.trainingPct}%`} />
         <StatTile label={t('ad.champions')} value={String(a.champions)} sub={t('ad.championsDetail')} />
         <StatTile label={t('ad.pulse')} value={`${a.pulse.toFixed(1)} / 5`} />

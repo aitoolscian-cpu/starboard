@@ -150,7 +150,7 @@ export function Starfield({ magic }: { magic: boolean }) {
   return (
     <canvas
       ref={ref}
-      className="pointer-events-none fixed inset-0 z-0 h-full w-full"
+      className="no-print pointer-events-none fixed inset-0 z-0 h-full w-full"
       aria-hidden="true"
     />
   )

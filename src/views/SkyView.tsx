@@ -18,8 +18,8 @@ const H = 640
 
 /** Stars sharing a city get a small celestial offset so they never overlap. */
 const OFFSETS: Partial<Record<ProgramId, [number, number]>> = {
-  canopus: [-2.6, 2.6],
-  hadar: [3.4, -2.6],
+  canopus: [-2.8, 2.6],
+  hadar: [3.4, -1.6],
 }
 
 const GLOW_FILL: Record<Status, string> = {
@@ -42,7 +42,7 @@ interface StarPos {
 
 function useStarPositions(): { stars: StarPos[]; mapD: string } {
   return useMemo(() => {
-    const projection = geoMercator().scale(520).center([-67.5, -9.5]).translate([W / 2, H / 2 + 14])
+    const projection = geoMercator().scale(465).center([-66.5, -7.5]).translate([W / 2, H / 2 + 6])
     const path = geoPath(projection)
     const mapD = path(latamGeo as unknown as FeatureCollection) ?? ''
     const stars = PROGRAMS.map((program) => {
@@ -87,7 +87,7 @@ function HoverCard({ hover, stars }: { hover: Hover; stars: StarPos[] }) {
       </div>
       <div className="mt-1 text-sm leading-snug text-starlight">{pick(p.domain)}</div>
       <div className="mt-1.5 flex items-center gap-2 text-xs text-muted">
-        <span>{CITIES[p.city].name}</span>
+        <span>{pick(CITIES[p.city].name)}</span>
         <span aria-hidden="true">·</span>
         <span>{methodKey}</span>
         <span aria-hidden="true">·</span>
@@ -115,7 +115,7 @@ function Legend() {
     <div className="panel hidden w-[248px] flex-col gap-1.5 p-3.5 text-xs text-muted md:flex">
       <span className="eyebrow mb-1">{t('sky.legendTitle')}</span>
       <span className="flex items-center gap-2.5">
-        <span className="dot dot-green" /> {t('sky.legendGreen')}
+        <span className="dot dot-gold" /> {t('sky.legendGreen')}
       </span>
       <span className="flex items-center gap-2.5">
         <span className="dot dot-amber" /> {t('sky.legendAmber')}

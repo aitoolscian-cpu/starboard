@@ -16,7 +16,7 @@ export type CityId = 'buenosAires' | 'saoPaulo' | 'mexicoCity' | 'bogota' | 'san
 
 export interface City {
   id: CityId
-  name: string
+  name: Bi
   country: string
   /** [longitude, latitude] */
   coordinates: [number, number]

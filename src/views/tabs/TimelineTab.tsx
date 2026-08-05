@@ -170,6 +170,7 @@ export function TimelineTab({ program: p }: { program: Program }) {
           {/* milestones — labels alternate above/below */}
           {p.milestones.map((m, i) => {
             const x = frac(m.date) * W
+            const labelX = Math.min(Math.max(x, 72), W - 72)
             const above = i % 2 === 0
             const labelY = above ? AXIS_Y - 52 : AXIS_Y + 34
             return (
@@ -186,7 +187,7 @@ export function TimelineTab({ program: p }: { program: Program }) {
                   <MilestoneStar m={m} />
                   <title>{`${pick(m.label)} — ${fmtDate(m.date, lang, true)}`}</title>
                 </g>
-                <foreignObject x={x - 70} y={labelY - (above ? 26 : 8)} width="140" height="46">
+                <foreignObject x={labelX - 70} y={labelY - (above ? 26 : 8)} width="140" height="46">
                   <div
                     style={{
                       textAlign: 'center',

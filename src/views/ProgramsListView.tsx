@@ -31,7 +31,7 @@ export function ProgramCards({ onOpenProgram }: { onOpenProgram: (id: ProgramId)
             <span className="text-sm leading-snug text-starlight">{pick(p.domain)}</span>
             <span className="flex items-center justify-between gap-3 text-xs text-muted">
               <span>
-                {CITIES[p.city].name} · <span className="tnum">{fmtMoney(p.budget)}</span>
+                {pick(CITIES[p.city].name)} · <span className="tnum">{fmtMoney(p.budget)}</span>
               </span>
               <Sparkline data={p.burn} width={72} height={20} />
             </span>

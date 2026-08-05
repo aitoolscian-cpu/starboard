@@ -3,31 +3,31 @@ import type { City, CityId, DependencyEdge, Program } from './types'
 export const CITIES: Record<CityId, City> = {
   buenosAires: {
     id: 'buenosAires',
-    name: 'Buenos Aires',
+    name: { en: 'Buenos Aires', es: 'Buenos Aires' },
     country: 'Argentina',
     coordinates: [-58.38, -34.6],
   },
   saoPaulo: {
     id: 'saoPaulo',
-    name: 'São Paulo',
+    name: { en: 'São Paulo', es: 'São Paulo' },
     country: 'Brasil',
     coordinates: [-46.63, -23.55],
   },
   mexicoCity: {
     id: 'mexicoCity',
-    name: 'Mexico City',
+    name: { en: 'Mexico City', es: 'Ciudad de México' },
     country: 'México',
     coordinates: [-99.13, 19.43],
   },
   bogota: {
     id: 'bogota',
-    name: 'Bogotá',
+    name: { en: 'Bogotá', es: 'Bogotá' },
     country: 'Colombia',
     coordinates: [-74.07, 4.71],
   },
   santiago: {
     id: 'santiago',
-    name: 'Santiago',
+    name: { en: 'Santiago', es: 'Santiago' },
     country: 'Chile',
     coordinates: [-70.67, -33.45],
   },

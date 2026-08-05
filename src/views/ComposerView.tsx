@@ -41,8 +41,8 @@ function buildText(s: Session, lang: Lang, labels: Record<string, string>): stri
   return lines.join('\n')
 }
 
-const CHARS_PER_TICK = 2
-const TICK_MS = 56 // ≈ 36 chars/sec
+const CHARS_PER_TICK = 3
+const TICK_MS = 42 // ≈ 70 chars/sec — reads as typing without testing a recruiter's patience
 
 export default function ComposerView() {
   const { t, lang, pick } = useI18n()

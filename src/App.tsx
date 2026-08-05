@@ -1,5 +1,5 @@
 import { Suspense, lazy, useCallback, useRef, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, MotionConfig, motion } from 'framer-motion'
 import { I18nProvider, useI18n } from './i18n'
 import type { Nav } from './lib/nav'
 import { Header } from './components/Header'
@@ -122,7 +122,9 @@ function Shell() {
 export default function App() {
   return (
     <I18nProvider>
-      <Shell />
+      <MotionConfig reducedMotion="user">
+        <Shell />
+      </MotionConfig>
     </I18nProvider>
   )
 }

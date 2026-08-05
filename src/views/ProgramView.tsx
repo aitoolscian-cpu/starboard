@@ -60,7 +60,7 @@ export default function ProgramView({ programId, onBack, onOpenProgram }: Props)
           <StatusDot status={p.status} withLabel />
           <span className="rounded-full border border-[var(--hairline)] px-2.5 py-0.5 text-xs">{method}</span>
           <span>
-            {t('common.city')}: <span className="text-starlight">{CITIES[p.city].name}</span>
+            {t('common.city')}: <span className="text-starlight">{pick(CITIES[p.city].name)}</span>
           </span>
           <span>
             {t('common.budget')}: <span className="tnum text-starlight">{fmtMoney(p.budget)}</span>

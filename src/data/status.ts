@@ -452,8 +452,8 @@ export const STATUS_TEXTS: Record<ProgramId, Drafts> = {
           es: 'Dueños de grupos de migración: actualizar los runbooks de reversión antes del 8 de agosto, previo a la decisión del comité.',
         },
         next: {
-          en: 'Steering decision 12 August; if approved, secondary carrier installs within 2 weeks.',
-          es: 'Decisión del comité el 12 de agosto; si se aprueba, el operador secundario instala en 2 semanas.',
+          en: 'Steering decision 12 August; if approved, the pre-surveyed secondary carrier goes live within days.',
+          es: 'Decisión del comité el 12 de agosto; si se aprueba, el operador secundario ya relevado se activa en días.',
         },
       },
       {
@@ -627,8 +627,8 @@ export const STATUS_TEXTS: Record<ProgramId, Drafts> = {
             es: 'Telemetría SD-WAN: latencia 22% menor y pérdida de paquetes bajo 0.1% en los cuatro sitios activos.',
           },
           {
-            en: 'Secondary-carrier survey for São Paulo completed — install feasible in two weeks from approval.',
-            es: 'Relevamiento del operador secundario para São Paulo completado — instalación factible a dos semanas de la aprobación.',
+            en: 'Secondary-carrier survey for São Paulo completed — expedited metro-fiber build, live within days of approval.',
+            es: 'Relevamiento del operador secundario para São Paulo completado — tendido metropolitano acelerado, activo a días de la aprobación.',
           },
           {
             en: 'QoS profiles for ANTARES replication traffic pre-staged and lab-tested.',
