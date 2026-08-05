@@ -1,0 +1,250 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #0a0e1e;
+  --deep: #111736;
+  --starlight: #f7f4ec;
+  --gold: #e8b84b;
+  --aurora: #4fd8c4;
+  --amber: #f2a65a;
+  --ember: #e4586b;
+  --muted: #8a93c9;
+  --hairline: rgba(138, 147, 201, 0.18);
+}
+
+html {
+  background: var(--ink);
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+  color: var(--starlight);
+  font-family: 'Inter Variable', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---------- signature type ---------- */
+
+.display {
+  font-family: 'Fraunces Variable', Georgia, serif;
+  font-variation-settings: 'opsz' 144, 'SOFT' 60, 'WONK' 1;
+}
+
+.display-title {
+  font-family: 'Fraunces Variable', Georgia, serif;
+  font-variation-settings: 'opsz' 144, 'SOFT' 55, 'WONK' 1;
+  font-style: italic;
+  font-weight: 360;
+  letter-spacing: 0.005em;
+}
+
+.wordmark {
+  font-family: 'Fraunces Variable', Georgia, serif;
+  font-variation-settings: 'opsz' 144, 'SOFT' 0, 'WONK' 0;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- surfaces ---------- */
+
+.panel {
+  background: var(--deep);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+}
+
+.vignette {
+  background: radial-gradient(120% 90% at 50% 18%, var(--deep) 0%, var(--ink) 70%);
+}
+
+.hairline-b {
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* ---------- health as light ---------- */
+
+.dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  flex: none;
+}
+.dot-green {
+  background: var(--aurora);
+  box-shadow: 0 0 8px 1px rgba(79, 216, 196, 0.7);
+}
+.dot-amber {
+  background: var(--amber);
+  box-shadow: 0 0 8px 1px rgba(242, 166, 90, 0.7);
+  animation: pulse-amber 2.8s ease-in-out infinite;
+}
+.dot-red {
+  background: var(--ember);
+  box-shadow: 0 0 9px 2px rgba(228, 88, 107, 0.75);
+  animation: flicker-ember 1.15s linear infinite;
+}
+
+@keyframes pulse-amber {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+@keyframes flicker-ember {
+  0%, 100% { opacity: 1; }
+  38% { opacity: 0.5; }
+  46% { opacity: 0.95; }
+  61% { opacity: 0.45; }
+  72% { opacity: 1; }
+}
+
+/* sky star glows share the dot animations */
+.glow-amber {
+  animation: pulse-amber 2.8s ease-in-out infinite;
+}
+.glow-red {
+  animation: flicker-ember 1.15s linear infinite;
+}
+
+/* critical dependency edge: slow directional shimmer */
+.edge-critical {
+  stroke-dasharray: 6 18;
+  animation: shimmer-dash 2.6s linear infinite;
+}
+@keyframes shimmer-dash {
+  to { stroke-dashoffset: -24; }
+}
+
+/* star flare on hover (SVG group) */
+.star-hit {
+  cursor: pointer;
+}
+.star-glow {
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.star-hit:hover .star-glow,
+.star-hit:focus-visible .star-glow {
+  transform: scale(1.55);
+}
+
+/* aurora horizon — magic mode only */
+.aurora-horizon {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 42vh;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(79, 216, 196, 0.16),
+    rgba(79, 216, 196, 0.05) 45%,
+    transparent
+  );
+  animation: aurora-breathe 7s ease-in-out infinite;
+}
+@keyframes aurora-breathe {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* composer caret */
+.caret::after {
+  content: '▍';
+  color: var(--gold);
+  animation: caret-blink 1s steps(1) infinite;
+}
+@keyframes caret-blink {
+  50% { opacity: 0; }
+}
+
+/* ---------- a11y ---------- */
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- print: the steering one-pager ---------- */
+
+@media print {
+  html,
+  body {
+    background: #fff !important;
+    color: #16181f !important;
+    font-size: 12px;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .vignette {
+    background: #fff !important;
+  }
+  #steering-sheet {
+    background: #fff !important;
+    color: #16181f !important;
+    border: none !important;
+    box-shadow: none !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+  #steering-sheet .panel {
+    background: #fff !important;
+    border: 1px solid #d8d8de !important;
+    break-inside: avoid;
+  }
+  #steering-sheet .eyebrow {
+    color: #5a5f73 !important;
+  }
+  #steering-sheet h1,
+  #steering-sheet h2,
+  #steering-sheet h3 {
+    color: #16181f !important;
+  }
+  #steering-sheet .print-ink {
+    color: #16181f !important;
+  }
+  #steering-sheet .print-muted {
+    color: #5a5f73 !important;
+  }
+  .dot-amber,
+  .dot-red {
+    animation: none !important;
+  }
+}
+
+@page {
+  size: A4;
+  margin: 13mm;
+}
